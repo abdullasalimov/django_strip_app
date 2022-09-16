@@ -1,15 +1,19 @@
-FROM python:3.8-slim-buster
+FROM python:3.10.7-slim-buster
 
-RUN mkdir /app
-WORKDIR /app
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-COPY requirements.txt requirements.txt
-COPY .env .env
+WORKDIR /code
 
-RUN pip3 install -r requirements.txt
+COPY requirements.txt /code/
+COPY .env /code/
+
+RUN python3 -m pip install -r requirements.txt
+
+COPY . /code/
+
 RUN python3 manage.py makemigrations
 RUN python3 manage.py migrate
 
-COPY . .
 
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
