@@ -17,7 +17,7 @@
                     {% if item.currency == 'usd' %}
                     <p>Price: ${{ item.get_display_price }}</p>
                     {% else %}
-                    <p>Price: ₽{{ item.get_display_price }}</p>
+                    <p>Price: €{{ item.get_display_price }}</p>
                     {% endif %}
                 </div>
                 <div class="card-footer d-flex">
@@ -27,6 +27,14 @@
             <br>
         </div>
         {% endfor %}
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{% url 'create' %}" class="btn btn-success">+</a>
+                </div>
+            </div>
+        </div>
 
     </div>
     {% else %}

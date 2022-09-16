@@ -2,11 +2,11 @@ from django.db import models
 
 
 class Item(models.Model):
-    CURRENCY = (("usd", "usd"), ("rub", "rub"))
+    CURRENCY = (("usd", "usd"), ("eur", "eur"))
     
     name = models.CharField(max_length=150)
     description = models.TextField(blank=True)
-    price = models.IntegerField(default=0)
+    price = models.IntegerField(default=50)
     currency = models.CharField(max_length=3, choices=CURRENCY, blank=False, default='usd')
     
     def get_display_price(self):
