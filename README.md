@@ -39,13 +39,14 @@
 ## App is live on Heroku server
 
 1. To test app go below site:
-
+        ```
         https://django-stripe-app.herokuapp.com/
-
+        ```
 2. To go to admin panel:
-
+        ```
         https://django-stripe-app.herokuapp.com/admin/
-
+        ```
+        
         login:admin
         password:123
 
