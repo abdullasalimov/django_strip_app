@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath django_stripe_app core.wsgi:application --log-file -
