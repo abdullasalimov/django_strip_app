@@ -1,4 +1,4 @@
-# Django Stripe APP
+# Django-Stripe Payment APP
 
 ## Build and run the container
 
