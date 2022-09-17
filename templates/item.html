@@ -21,7 +21,7 @@
                     {% endif %}
                 </div>
                 <div class="card-footer d-flex">
-                    <a href="{% url 'detail' pk=item.id %}" class="btn btn-success ml-auto">Buy Now</a>
+                    <a href="{% url 'item_detail' pk=item.id %}" class="btn btn-success ml-auto">Detail</a>
                 </div>
             </div>
             <br>
@@ -30,9 +30,7 @@
 
         <div class="col-sm-4">
             <div class="card">
-                <div class="card-body">
-                    <a href="{% url 'create' %}" class="btn btn-success">+</a>
-                </div>
+                <a href="{% url 'create' %}" class="btn btn-success">+</a>
             </div>
         </div>
 

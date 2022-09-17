@@ -9,9 +9,9 @@ from .views import (
     )
 
 urlpatterns = [
-    path('', ItemListPageView.as_view(), name='home'),
+    path('item/', ItemListPageView.as_view(), name='item'),
+    path('item/<int:pk>/', ItemDetailPageView.as_view(), name='item_detail'),
     path('buy/<int:pk>/', CreateCheckoutSessionView.as_view(), name='buy'),
-    path('item/<int:pk>/', ItemDetailPageView.as_view(), name='detail'),
     path('cancel/', CancelView.as_view(), name='cancel'),
     path('success/', SuccessView.as_view(), name='success'),
     path('create/', ItemCreateView.as_view(), name='create'),

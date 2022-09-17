@@ -20,23 +20,22 @@ class SuccessView(TemplateView):
 class CancelView(TemplateView):
     template_name = "cancel.html"
 
-
 class ItemListPageView(ListView):
     model = Item
-    template_name = 'home.html'
+    template_name = 'item.html'
     context_object_name = 'items'
+
+class ItemDetailPageView(DetailView):
+    model = Item
+    template_name = 'item_detail.html'
+    pk_url_kwarg = 'pk'
 
 class ItemCreateView(CreateView):
     model = Item
     fields = '__all__'
     template_name = "create.html"
-    success_url = reverse_lazy("home")
+    success_url = reverse_lazy("item")
     
-class ItemDetailPageView(DetailView):
-    model = Item
-    template_name = 'detail.html'
-    pk_url_kwarg = 'pk'
-
 
 class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
@@ -47,7 +46,7 @@ class CreateCheckoutSessionView(View):
         price = stripe.Price.create(product=product, unit_amount=item.price, currency=item.currency)
 
         checkout_session = stripe.checkout.Session.create(
-            line_items=[
+            line_item=[
                 {
                     'price':price,
                     'quantity': 1,
