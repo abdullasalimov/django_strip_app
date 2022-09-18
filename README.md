@@ -12,27 +12,26 @@
     ```
     cd django_stripe_app
     ```
+4. Go to https://stripe.com/ and register to get stripe keys.
 
-4. Create a .env file at the same level as this README, containing the following. This will be used by Docker.
+5. Create a .env file at the same level as this README, and input stripe keys. This will be used by Docker.
+    
     ```
-    # Environment settings for local development.
-
-    STRIPE_PUBLIC_KEY=pk_test_........... #Input your stripe public key
-    STRIPE_SECRET_KEY=sk_test_........... #Input your stripe secret key
-    DOMAIN=http://localhost:8000
+    STRIPE_PUBLIC_KEY=pk_test_...........
+    STRIPE_SECRET_KEY=sk_test_...........
     ```
 
-5. On the command line, within this directory, do this to build the image and start the container:
+6. On the command line, within this directory, do this to build the image and start the container:
 
         docker build --tag django-stripe-app .
 
-6. If that's successful you can then start it up. This will start up the database and web server, and display the Django runserver logs:
+7. If that's successful you can then start it up. This will start up the database and web server, and display the Django runserver logs:
 
         docker run --publish 8000:8000 django-stripe-app
 
-7. Open http://localhost:8000 in your browser.
+8. Open http://localhost:8000/item/ in your browser.
 
-8. To create admin use below command:
+9. To create admin use below command:
 
         docker exec -it container_id python manage.py createsuperuser
 
@@ -40,7 +39,7 @@
 
 1. To test app go below site:
 
-    https://django-stripe-app.herokuapp.com/
+    https://django-stripe-app.herokuapp.com/item/
 
 2. To go to admin panel:
 
@@ -49,8 +48,3 @@
         login:admin
         password:123
 
-3. Test stripe api with below card numbers:
-
-        Success: 4242 4242 4242 4242
-        Authentication: 4000 0000 0000 3220
-        Decline: 4000 0000 0000 0002
